@@ -1,0 +1,48 @@
+# version format ex. "0.0.1"
+version: "0.0.2"
+
+# Basic metadata for the agent
+metadata:
+  name: "ai-art-curator"
+  description: "This flow helps you curate and generate custom art based on user preferences."
+  author: "charvi" # This username should match your account username
+  tags: [art, curator, design, custom, creativity] # Tags are keywords used to categorize your flow
+  private: false # Access control for your flows (true/false)
+
+# Define the input variables required
+inputs:
+  art_theme:
+    type: string
+    description: "Enter the theme or concept for the artwork."
+    required: true
+    example: "Abstract, Fantasy, Surrealism, etc."
+  style:
+    type: string
+    description: "Enter the art style you want (e.g., impressionist, minimalist)."
+    required: true
+    example: "Impressionism, Cubism, Minimalism, etc."
+  medium:
+    type: string
+    description: "Enter the medium of art you'd like (e.g., digital, painting, sculpture)."
+    required: true
+    example: "Digital, Oil painting, Sculpture, etc."
+
+# LLM configuration
+model:
+  provider: "openai" # e.g., anthropic, openai, meta, etc.
+  name: "gpt-4-artflow"
+
+# Prompt template configuration
+prompt: |
+  Curate and describe a piece of art based on the following inputs:
+  Theme: {art_theme}, 
+  Style: {style}, 
+  Medium: {medium}.
+
+# ReadME configuration
+readme: |
+  This flow curates and generates descriptions for custom art pieces based on your inputs. 
+  Provide a theme, style, and medium, and the flow will suggest an art concept. The model used is gpt-4-artflow.
+
+  Example: 
+    Input1: Abstract, Input2: Cubism, Input3: Oil painting
